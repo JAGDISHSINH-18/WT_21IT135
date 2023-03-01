@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Form Validation</title>
+<script>
+function validateForm() {
+// Get values of form elements
+var userid = document.forms["myForm"]["userid"].value;
+var password = document.forms["myForm"]["password"].value;
+var name = document.forms["myForm"]["name"].value;
+var address = document.forms["myForm"]["address"].value;
+var country = document.forms["myForm"]["country"].value;
+var zipcode = document.forms["myForm"]["zipcode"].value;
+var email = document.forms["myForm"]["email"].value;
+var sex = document.forms["myForm"]["sex"].value;
+var english = document.forms["myForm"]["english"].checked;
+var non_english = document.forms["myForm"]["non_english"].checked;
+var about = document.forms["myForm"]["about"].value;
+// Validate userid
+if (userid == "" || userid.length < 5 || userid.length > 12) {
+alert("Userid must be between 5 and 12 characters");
+return false;
+}
+// Validate password
+if (password == "" || password.length < 7 || password.length > 12) {
+alert("Password must be between 7 and 12 characters");
+return false;
+}
+// Validate name
+if (name == "" || !/^[a-zA-Z]+$/.test(name)) {
+alert("Name can only contain alphabets");
+return false;
+}
+// Validate country
+if (country == "") {
+alert("Please select a country");
+return false;
+}
+// Validate zipcode
+if (zipcode == "" || isNaN(zipcode)) {
+alert("Zipcode must be a number");
+return false;
+}
+// Validate email
+if (email == "") {
+alert("Email is required");
+return false;
+}
+// Validate sex
+if (sex == "") {
+alert("Please select a sex");
+return false;
+}
+// Validate language
+if (!english || !non_english) {
+alert("Please select at least one language");
+return false;
+}
+// All validations passed
+return true;
+}
+</script>
+</head>
+<body>
+<h1>Registratation Form</h1>
+<form name="myForm" onsubmit="return validateForm()">
+<label for="userid">Userid:</label>
+<input type="text" id="userid" name="userid" required minlength="5"
+maxlength="12"><br><br>
+<label for="password">Password:</label>
+<input type="password" id="password" name="password" required
+minlength="7" maxlength="12"><br><br>
+<label for="name">Name:</label>
+<input type="text" id="name" name="name" required pattern="[a-zAZ]+"><br><br>
+<label for="address">Address:</label>
+<input type="text" id="address" name="address"><br><br>
+<label for="country">Country:</label>
+<select id="country" name="country" required>
+<option value="">--Select a country--</option>
+<option value="USA">USA</option>
+<option value="Canada">Canada</option>
+<option value="UK">UK</option>
+<option value="Australia">Australia</option>
+<option value="Japan">Japan</option>
+</select><br><br>
+<label for="zipcode">Zipcode:</label>
+<input type="number" id="zipcode" name="zipcode" required><br><br>
+<label for="email">Email:</label>
+<input type="email" id="email" name="email" required><br><br>
+<label for="sex">Sex:</label>
+<input type="radio" id="sex_male" name="sex" value="Male" required>
+<label for="sex_male">Male</label>
+<input type="radio" id="sex_female" name="sex" value="Female" required>
+<label for="sex_female">Female</label><br><br>
+<label>Languages:</label>
+<input type="checkbox" id="english" name="english" value="English" >
+<label for="english">English</label>
+<input type="checkbox" id="nonenglish" name="nonenglish" value="NonEnglish" >
+<label for="nonenglish">Non-English</label><br><br>
+<label for="about">About:</label>
+<textarea id="about" name="about"></textarea><br><br>
+<input type="submit" value="Submit">
+</form>
+</body>
+</html>
