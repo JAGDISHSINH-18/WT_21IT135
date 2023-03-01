@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input_calc</title>
+</head>
+<body>
+    <br><input placeholder="First Number" type="number" name="" id="fn">
+    <br><input placeholder="Operator" type="text" name="" id="op" maxlength="1">
+    <br><input placeholder="Second Number" type="number" name="" id="sn">
+    <br><button type="number" name="" onclick="calculate();">Click</button>
+    <br>
+    <p id="p"></p>
+    <script>
+        function calculate() {
+            let fn = document.getElementById("fn").value;
+            let op = document.getElementById("op").value;
+            let sn = document.getElementById("sn").value;
+            let str = fn + op + sn;
+            let ans = eval(str);
+            let p = document.getElementById("p");
+            p.textContent = fn + " " + op + " " + sn + "=" + ans;
+        }
+    </script>
+</body>
+</html>

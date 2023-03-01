@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>Temperature Conversion</title>
+</head>
+<body>
+    <h2>Temperature Conversion</h2>
+    <form>
+        Enter Celsius temperature:
+        <input type="text" id="celsius">
+        <input type="button" value="Convert" onclick="convertCtoF()">
+    </form>
+    <p>Fahrenheit temperature is: <span id="fahrenheit"></span></p>
+    <script>
+        function convertCtoF() {
+            var celsius = document.getElementById("celsius").value;
+            var fahrenheit = (celsius * 1.8) + 32;
+            document.getElementById("fahrenheit").innerHTML = fahrenheit;
+        }
+    </script>
+</body>
+</html>
